@@ -1,0 +1,61 @@
+﻿@using AirCompanyExchangeWebApplication.Models
+@model AirCompanyExchange.Model.PlaneViewModel
+@{
+    ViewBag.Title = "Add Plane";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+@using (Html.BeginForm("AddPlane", "Planes", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    <h4>Create a new robot.</h4>
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+
+    <div class="form-group">
+        <label class="col-md-2 col-md-offset-2 control-label">Company</label>
+        <div class="col-md-6 ">
+            <p class="form-control-static">
+                @CurrentUser.User.Name
+            </p>
+            <input id="CompanyId" name="CompanyId" value="@CurrentUser.User.UserId" type="hidden" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-2 col-md-offset-2 control-label">Plane Model</label>
+        <div class="col-md-6 ">
+            <select class="form-control" id="PlaneModelId" name="PlaneModelId" placeholder="Select an option" required>
+                @foreach (var planeModel in Model.PlaneModels)
+                {
+                    <option value="@planeModel.PlaneModelId">@planeModel.Name</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.CostPerFlight,
+            new { @class = "col-md-2 col-md-offset-2 control-label" })
+        <div class="col-md-6 ">
+            @Html.TextBoxFor(m => m.CostPerFlight, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.CountPlanes,
+            new { @class = "col-md-2 col-md-offset-2 control-label" })
+        <div class="col-md-6 ">
+            <input class="form-control" id="CountPlanes" name="CountPlanes" type="number" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-4 col-md-4">
+            <input type="submit" class="form-control btn btn-default" value="Add plane" />
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

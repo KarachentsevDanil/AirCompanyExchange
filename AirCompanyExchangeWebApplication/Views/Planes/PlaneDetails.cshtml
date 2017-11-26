@@ -1,0 +1,52 @@
+﻿@model AirCompanyExchange.Entities.Plane
+@{
+    ViewBag.Title = "Plane detils";
+}
+
+<h2>Plane #@(Model.PlaneId)</h2>
+
+<div class="form-horizontal">
+
+    <div class="form-group">
+        <label class="col-md-2 col-md-offset-2 control-label">Model</label>
+        <div class="col-md-6 ">
+            <p class="form-control-static">
+                @Model.PlaneModel.Name
+            </p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-2 col-md-offset-2 control-label">Type</label>
+        <div class="col-md-6 ">
+            <p class="form-control-static">
+                @Model.PlaneModel.PlaneType.Name
+            </p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-2 col-md-offset-2 control-label">Price Per Flight</label>
+        <div class="col-md-6 ">
+            <p class="form-control-static">
+                @Model.CostPerFlight
+            </p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 col-md-offset-2 control-label">Capacilty</label>
+        <div class="col-md-6 ">
+            <p class="form-control-static">
+                @Model.PlaneModel.Capacity
+            </p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 col-md-offset-2 control-label">Description</label>
+        <div class="col-md-6 ">
+            <p class="form-control-static">
+                @Model.PlaneModel.Description
+            </p>
+        </div>
+    </div>
+</div>

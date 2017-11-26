@@ -1,0 +1,42 @@
+﻿@model AirCompanyExchange.Entities.Rent
+@{
+    ViewBag.Title = "Rent detils";
+}
+
+<h2>Rent #@(Model.RentId)</h2>
+
+<div class="form-horizontal">
+
+    <div class="form-group">
+        <label class="col-md-2 col-md-offset-2 control-label">Count Flights</label>
+        <div class="col-md-6 ">
+            <p class="form-control-static">
+                @Model.CountFlights
+            </p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-2 col-md-offset-2 control-label">Feedback</label>
+        <div class="col-md-6 ">
+            <p class="form-control-static">
+                @Model.Feedback
+            </p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 col-md-offset-2 control-label">Total Price</label>
+        <div class="col-md-6 ">
+            <p class="form-control-static">
+                @(Model.Planes.Sum(x => x.Plane.CostPerFlight * Model.CountFlights))
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <h4>
+        Planes
+    </h4>
+    @Html.Partial("_Planes", Model.Planes.Select(x => x.Plane).ToList())
+</div>

@@ -1,0 +1,6 @@
+﻿@using AirCompanyExchangeWebApplication.Models
+@model IEnumerable<AirCompanyExchange.Entities.Plane>
+
+<h2>Planes of @CurrentUser.User.Name</h2>
+
+@Html.Partial("_Planes", Model)

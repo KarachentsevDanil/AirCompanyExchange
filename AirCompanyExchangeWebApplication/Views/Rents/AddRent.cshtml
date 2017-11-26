@@ -1,0 +1,55 @@
+﻿@model AirCompanyExchange.Model.RentViewModel
+@{
+    ViewBag.Title = "Rent planes";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+@using (Html.BeginForm("AddRent", "Rents", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    
+    <div class="form-group">
+        <label class="col-md-2 col-md-offset-2 control-label">Plane Type</label>
+        <div class="col-md-6 ">
+            <select class="form-control" id="PlaneTypeId" name="PlaneTypeId" placeholder="Select an option" required>
+                @foreach (var planeModel in Model.PlaneTypes)
+                {
+                    <option value="@planeModel.PlaneTypeId">@planeModel.Name</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.CountPlanes,
+            new { @class = "col-md-2 col-md-offset-2 control-label" })
+        <div class="col-md-6 ">
+            <input class="form-control" id="CountPlanes" name="CountPlanes" type="number"/>
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.StartCountPlaces,
+            new { @class = "col-md-2 col-md-offset-2 control-label" })
+        <div class="col-md-6 ">
+            <input class="form-control" id="StartCountPlaces" name="StartCountPlaces" type="number" />
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.EndCountPlaces,
+            new { @class = "col-md-2 col-md-offset-2 control-label" })
+        <div class="col-md-6 ">
+            <input class="form-control" id="EndCountPlaces" name="EndCountPlaces" type="number" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-4 col-md-4">
+            <input type="submit" class="form-control btn btn-default" value="Rent planes" />
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

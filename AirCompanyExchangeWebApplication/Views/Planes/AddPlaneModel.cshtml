@@ -1,0 +1,58 @@
+﻿@model AirCompanyExchange.Model.PlaneModelViewModel
+@{
+    ViewBag.Title = "Add Plane Model";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+@using (Html.BeginForm("AddPlaneModel", "Planes", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    <h4>Create a new robot.</h4>
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name,
+            new { @class = "col-md-2 col-md-offset-2 control-label" })
+        <div class="col-md-6 ">
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-2 col-md-offset-2 control-label">Plane Type</label>
+        <div class="col-md-6 ">
+            <select class="form-control" id="PlaneTypeId" name="PlaneTypeId" placeholder="Select an option" required>
+                @foreach (var planeType in Model.PlaneTypes)
+                {
+                    <option value="@planeType.PlaneTypeId">@planeType.Name</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Capacity,
+            new { @class = "col-md-2 col-md-offset-2 control-label" })
+        <div class="col-md-6 ">
+            <input class="form-control" id="Capacity" name="Capacity" type="number" />
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Description,
+            new { @class = "col-md-2 col-md-offset-2 control-label" })
+        <div class="col-md-6 ">
+            @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-4 col-md-4">
+            <input type="submit" class="form-control btn btn-default" value="Add plane model" />
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<AirCompanyExchange.Entities.Rent>
+
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Number</th>
+                <th>Planes</th>
+                <th>Count Flights</th>
+                <th>Total Price</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var rent in Model)
+            {
+                <tr>
+                    <td>#@rent.RentId</td>
+                    <td>
+                        @foreach (var plane in rent.Planes.Select(x => x.Plane))
+                        {
+                            <p>Company: @plane.Company.Name</p>
+                            <p>Model: @plane.PlaneModel.Name</p>
+                            <p>Type: @plane.PlaneModel.PlaneType.Name</p>
+                            <p>Capacilty: @plane.PlaneModel.Capacity</p>
+                            <p>Price: @plane.CostPerFlight</p>
+                        }
+                    </td>
+                    <td>@rent.CountFlights</td>
+                    <td>@(rent.Planes.Sum(x => x.Plane.CostPerFlight * rent.CountFlights))</td>
+                    <td>
+                        <a href="@Url.Action("RentDetails", new { rentId = rent.RentId })" class="btn btn-xs btn-info">Details</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

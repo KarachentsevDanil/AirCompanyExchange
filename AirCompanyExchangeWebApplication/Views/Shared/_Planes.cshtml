@@ -1,0 +1,33 @@
+﻿@model IEnumerable<AirCompanyExchange.Entities.Plane>
+
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Number</th>
+            <th>Model</th>
+            <th>Type</th>
+            <th>Capacity</th>
+            <th>Description</th>
+            <th>Price Per Flight</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var plane in Model)
+        {
+            <tr>
+                <td>#@plane.PlaneId</td>
+                <td>@plane.PlaneModel.Name</td>
+                <td>@plane.PlaneModel.PlaneType.Name</td>
+                <td>@plane.PlaneModel.Capacity</td>
+                <td>@plane.PlaneModel.Description</td>
+                <td>@plane.CostPerFlight</td>
+                <td>
+                    <a href="@Url.Action("PlaneDetails", "Planes", new { planeId = plane.PlaneId })" class="btn btn-xs btn-info">Details</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

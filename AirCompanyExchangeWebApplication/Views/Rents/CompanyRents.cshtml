@@ -1,0 +1,6 @@
+﻿@using AirCompanyExchangeWebApplication.Models
+@model IEnumerable<AirCompanyExchange.Entities.Rent>
+
+<h2>Rents of @CurrentUser.User.Name</h2>
+
+@Html.Partial("_Rents", Model)
