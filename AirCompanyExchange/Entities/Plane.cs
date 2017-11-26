@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace AirCompanyExchange.Entities
 {
+    [JsonObject(IsReference = true)]
     public class Plane
     {
         public int PlaneId { get; set; }

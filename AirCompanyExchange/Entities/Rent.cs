@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace AirCompanyExchange.Entities
 {
+    [JsonObject(IsReference = true)]
     public class Rent
     {
         public int RentId { get; set; }
@@ -11,6 +13,8 @@ namespace AirCompanyExchange.Entities
         public int CountFlights { get; set; }
 
         public string Feedback { get; set; }
+
+        public bool IsCompleated { get; set; }
 
         public virtual Company Company { get; set; }
 

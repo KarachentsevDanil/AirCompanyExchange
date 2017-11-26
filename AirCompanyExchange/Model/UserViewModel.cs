@@ -1,4 +1,4 @@
-﻿namespace AirCompanyExchangeWebService.Models
+﻿namespace AirCompanyExchange.Model
 {
     public class UserViewModel
     {

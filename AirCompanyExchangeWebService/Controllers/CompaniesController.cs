@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 using AirCompanyExchange.Entities;
+using AirCompanyExchange.Model;
 using AirCompanyExchangeWebService.Context;
 using AirCompanyExchangeWebService.Models;
 
@@ -11,7 +12,7 @@ namespace AirCompanyExchangeWebService.Controllers
 {
     public class CompaniesController : ApiController
     {
-        private ContextWorker _context;
+        private readonly ContextWorker _context;
 
         public CompaniesController()
         {
@@ -19,7 +20,7 @@ namespace AirCompanyExchangeWebService.Controllers
         }
 
         [HttpPost]
-        public bool ClientLogin([FromBody] Company company)
+        public bool Login([FromBody] Company company)
         {
             try
             {
@@ -43,9 +44,24 @@ namespace AirCompanyExchangeWebService.Controllers
         }
 
         [HttpPost]
-        public void GetCurrentUser()
+        public UserViewModel Register([FromBody] Company company)
         {
-            CurrentUser.User = null;
+            _context.AirDbContext.Companies.Add(company);
+            _context.AirDbContext.SaveChanges();
+
+            CurrentUser.User = new UserViewModel
+            {
+                UserId = company.CompanyId,
+                Name = company.Name
+            };
+
+            return CurrentUser.User;
+        }
+
+        [HttpPost]
+        public UserViewModel GetCurrentUser()
+        {
+            return CurrentUser.User;
         }
 
         [HttpPost]

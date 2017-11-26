@@ -1,8 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Newtonsoft.Json;
 
 namespace AirCompanyExchange.Entities
 {
+    [JsonObject(IsReference = true)]
     public class RentPlane
     {
         [Key]

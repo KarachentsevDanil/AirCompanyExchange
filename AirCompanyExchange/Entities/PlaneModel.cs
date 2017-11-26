@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace AirCompanyExchange.Entities
 {
+    [JsonObject(IsReference = true)]
     public class PlaneModel
     {
         public int PlaneModelId { get; set; }

@@ -1,4 +1,6 @@
-﻿namespace AirCompanyExchangeWebService.Models
+﻿using AirCompanyExchange.Model;
+
+namespace AirCompanyExchangeWebService.Models
 {
     public static class CurrentUser
     {
