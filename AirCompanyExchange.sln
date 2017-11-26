@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2009
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "AirCompanyExchange\Entities.csproj", "{E954D5A3-36C8-46D1-82D2-FE369BCDB969}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirCompanyExchangeWebService", "AirCompanyExchangeWebService\AirCompanyExchangeWebService.csproj", "{89186862-6175-4390-9FB8-FCE3435FBA69}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E954D5A3-36C8-46D1-82D2-FE369BCDB969}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E954D5A3-36C8-46D1-82D2-FE369BCDB969}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E954D5A3-36C8-46D1-82D2-FE369BCDB969}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E954D5A3-36C8-46D1-82D2-FE369BCDB969}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89186862-6175-4390-9FB8-FCE3435FBA69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89186862-6175-4390-9FB8-FCE3435FBA69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89186862-6175-4390-9FB8-FCE3435FBA69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89186862-6175-4390-9FB8-FCE3435FBA69}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {077C07E2-185F-41A1-9DDD-402A5794A66A}
+	EndGlobalSection
+EndGlobal
